@@ -45,6 +45,6 @@ public class Walk {
 // NEESSWWNESE
 
 // output
-// Case # 1 : 3 2
-// Case # 1 : 3 3
-// Case # 1 : 3 7
+// Case # 1 : 2 3
+// Case # 2 : 1 1
+// Case # 3 : 3 4
