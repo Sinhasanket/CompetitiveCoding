@@ -61,3 +61,13 @@ public class SimilarChar {
         }
     }
 }
+
+//        Input
+//        9
+//        abacsddaa
+//        2
+//        9
+//        3
+//        Output
+//        3
+//        1
