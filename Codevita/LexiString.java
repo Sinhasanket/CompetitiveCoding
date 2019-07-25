@@ -1,8 +1,6 @@
 package Codevita;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class LexiString {
@@ -33,12 +31,17 @@ public class LexiString {
     }
 
     public static void main(String a[]){
-        FastReader sc = new FastReader();
-        int test = sc.nextInt();
-        while(test-->0){
-            String P = sc.next();
-            String S = sc.next();
-            solve(P,S);
+
+        try{
+            FastReader sc = new FastReader();
+            int test = sc.nextInt();
+            while(test-->0){
+                String P = sc.next();
+                String S = sc.next();
+                solve(P,S);
+            }
+        }catch (Exception e){
+            return;
         }
     }
 
@@ -57,6 +60,8 @@ public class LexiString {
             }
         }
         String ans = new String(ch);
+        StringBuffer sb = new StringBuffer();
+        sb.append(ans);
         System.out.println(ans);
     }
 }
