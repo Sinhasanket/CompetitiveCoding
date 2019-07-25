@@ -30,11 +30,6 @@ public class SimilarChar {
         int nextInt() {
             return Integer.parseInt(next());
         }
-
-        long nextLong() {
-            return Long.parseLong(next());
-        }
-
     }
 
     public static void main(String[] a) throws IOException {
@@ -42,7 +37,8 @@ public class SimilarChar {
            FastReader input = new FastReader();
             int lenght_Of_String = input.nextInt();
             String get_string = input.next();
-            char get_char[] = get_string.toCharArray();
+            String str = get_string.substring(0,lenght_Of_String);
+            char get_char[] = str.toCharArray();
             int query = input.nextInt();
             for(int j=0;j<query;j++){
                 int queries = input.nextInt();
