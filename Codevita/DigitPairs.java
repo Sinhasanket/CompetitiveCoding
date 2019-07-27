@@ -80,7 +80,8 @@ public class DigitPairs {
                     getNum = getNum/10;
                 }
                 sum = min*7+max*11;
-                if(sum>99) {
+                int sum_digit=(int) Math.log10(sum)+1;
+                if(sum_digit > 2) {
                     sum = sum%100;
                 }
                 ans.add(sum);
