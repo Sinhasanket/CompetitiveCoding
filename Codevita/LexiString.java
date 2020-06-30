@@ -1,70 +1,41 @@
 package Codevita;
 
-import java.io.*;
-import java.util.StringTokenizer;
+import java.util.Scanner;
+
+//AC
 
 public class LexiString {
-
-    static class FastReader {
-        BufferedReader br;
-        StringTokenizer st;
-
-        public FastReader() {
-            br = new BufferedReader(new
-                    InputStreamReader(System.in));
-        }
-
-        String next() {
-            while (st == null || !st.hasMoreElements()) {
-                try {
-                    st = new StringTokenizer(br.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return st.nextToken();
-        }
-
-        int nextInt() {
-            return Integer.parseInt(next());
-        }
-    }
-
     public static void main(String a[]){
-
-        try{
-            FastReader sc = new FastReader();
+            Scanner sc = new Scanner(System.in);
             int test = sc.nextInt();
             while(test-->0){
                 String P = sc.next();
                 String S = sc.next();
                 solve(P,S);
+                System.out.println();
             }
-        }catch (Exception e){
-            return;
-        }
     }
 
     public static void solve(String p,String s){
-        int len = s.length();
-        char pchar[] = p.toCharArray();
-        char schar[] = s.toCharArray();
-        char ch[] = new char[len];
-        int z=0;
-        for(int i=0;i<p.length();i++){
-            for(int j=0;j<s.length();j++){
-                if(pchar[i]==schar[j]){
-                    ch[z] = pchar[i];
-                    z++;
+        char newa[] = p.toCharArray();
+        int slen = s.length();
+        int count[] = new int[26];
+        for (int i=0;i<slen;i++){
+            char ch = s.charAt(i);
+            count[ch-97]++;
+        }
+        for (int i=0;i<26;i++){
+            char ch = newa[i];
+            int asc = (int)ch;
+            if (count[asc-97]!=0){
+                for (int x=1;x<=count[asc-97];x++){
+                    System.out.print(ch);
                 }
             }
         }
-        String ans = new String(ch);
-        StringBuffer sb = new StringBuffer();
-        sb.append(ans);
-        System.out.println(ans);
     }
 }
+
 
 //input
 //2

@@ -1,11 +1,11 @@
-package Codevita;
+package Codechef;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class SimilarChar {
+public class MangalYaan {
 
     static class FastReader {
         BufferedReader br;
@@ -32,38 +32,27 @@ public class SimilarChar {
         }
     }
 
-    public static void main(String[] a) throws IOException {
+    public static void main(String[] args){
+        FastReader in = new FastReader();
         try{
-           FastReader input = new FastReader();
-            int lenght_Of_String = input.nextInt();
-            String get_string = input.next();
-            String str = get_string.substring(0,lenght_Of_String);
-            char get_char[] = str.toCharArray();
-            int query = input.nextInt();
-            for(int j=0;j<query;j++){
-                int queries = input.nextInt();
+
+            int t = in.nextInt();
+            while(t-->0){
+                int num = in.nextInt();
+                int astro = in.nextInt();
+                int fitness[] = new int[num];
                 int count=0;
-                for(int i=0;i<queries-1;i++){
-                    if(get_char[i]==get_char[queries-1]){
+                for(int i=0;i<num;i++){
+                    fitness[i]=in.nextInt();
+                    if(fitness[i] >= astro){
                         count++;
                     }
                 }
-                StringBuffer buffer = new StringBuffer();
-                buffer.append(count);
-                System.out.println(buffer);
+                System.out.println(count);
             }
-        }catch(Exception e){
+
+        }catch (Exception e){
             return;
         }
     }
 }
-
-//        Input
-//        9
-//        abacsddaa
-//        2
-//        9
-//        3
-//        Output
-//        3
-//        1

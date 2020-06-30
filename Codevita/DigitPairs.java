@@ -1,9 +1,57 @@
-package Codevita;
+//package Codevita;
 
 import java.io.*;
 import java.util.ArrayList;
 
 public class DigitPairs {
+    public static void main(String[] args) {
+        try{
+
+            FastReader input = new FastReader();
+            ArrayList<Integer> list = new ArrayList<>();
+
+            int num = input.nextInt();
+            int count=0;
+            for(int i=0;i<num;i++) list.add(input.nextInt());
+
+            ArrayList<Integer> ans = new ArrayList<>();
+            for(int i=0;i<num;i++) {
+                int max=Integer.MIN_VALUE;
+                int min=Integer.MAX_VALUE;
+                int sum;
+                int getNum = list.get(i);
+                for(int j=0;j<3;j++) {
+                    int digit = getNum%10;
+                    if(digit>max) {
+                        max = digit;
+                    }
+                    if(digit<min) {
+                        min = digit;
+                    }
+                    getNum = getNum/10;
+                }
+                sum = min*7+max*11;
+                int sum_digit=(int) Math.log10(sum)+1;
+                if(sum_digit > 2) {
+                    sum = sum%100;
+                }
+                ans.add(sum);
+            }
+
+            for(int i=0;i<num;i++) {
+                int ele = ans.get(i);
+                for(int p=i+1;p<num;p+=2) {
+                    if(ele/10 == ans.get(p)/10)
+                        count++;
+                }
+            }
+
+            System.out.println(count);
+            input.close();
+        }catch (Exception e){
+            return;
+        }
+    }
 
     static class FastReader {
         final private int BUFFER_SIZE = 1 << 16;
@@ -50,57 +98,6 @@ public class DigitPairs {
             if (din == null)
                 return;
             din.close();
-        }
-    }
-
-    public static void main(String[] args) {
-
-        try{
-            FastReader input = new FastReader();
-            ArrayList<Integer> list = new ArrayList<>();
-
-            int num = input.nextInt();
-            int count=0;
-            for(int i=0;i<num;i++) list.add(input.nextInt());
-
-            ArrayList<Integer> ans = new ArrayList<>();
-            for(int i=0;i<num;i++) {
-                int max=Integer.MIN_VALUE;
-                int min=Integer.MAX_VALUE;
-                int sum;
-                int getNum = list.get(i);
-                for(int j=0;j<3;j++) {
-                    int digit = getNum%10;
-                    if(digit>max) {
-                        max = digit;
-                    }
-                    if(digit<min) {
-                        min = digit;
-                    }
-                    getNum = getNum/10;
-                }
-                sum = min*7+max*11;
-                int sum_digit=(int) Math.log10(sum)+1;
-                if(sum_digit > 2) {
-                    sum = sum%100;
-                }
-                ans.add(sum);
-            }
-
-            for(int i=0;i<num;i++) {
-                int ele = ans.get(i);
-                for(int p=i+1;p<num;p+=2) {
-                    if(ele/10 == ans.get(p)/10)
-                        count++;
-                }
-            }
-            StringBuffer sb = new StringBuffer();
-            sb.append(count);
-            System.out.println(count);
-
-            input.close();
-        }catch (Exception e){
-            return;
         }
     }
 }
